@@ -5,6 +5,7 @@ const cors = require('cors')
 
 app.use(express.json())
 app.use(cors())
+app.use(express.static('dist'))
 
 morgan.token('req-body', (req) => {
     return JSON.stringify(req.body);
@@ -57,7 +58,7 @@ app.get('/api/persons/:id', (request, response) =>{
     }
 })
 
-//DELETE a person
+// DELETE a person
 app.delete('/api/persons/:id', (request, response) => {
     const id = request.params.id
     persons = persons.filter(p => p.id !== id)
@@ -99,7 +100,7 @@ app.post('/api/persons', (request, response) => {
 })
 
 
-const PORT = 3001
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
+app.listen(3000, '0.0.0.0', () => {
+    console.log('Server is running on 0.0.0.0:3000');
 })
+  
