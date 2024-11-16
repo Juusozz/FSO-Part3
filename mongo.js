@@ -38,3 +38,5 @@ if (process.argv.length > 3) {
             mongoose.connection.close()
         })
     }
+
+// added line fro testing purposes
